@@ -1,0 +1,10 @@
+CREATE TABLE foo (
+  id Int NOT NULL PRIMARY KEY,
+  first_name VARCHAR(255)
+);
+
+getAll:
+SELECT * FROM foo;
+
+insert:
+INSERT INTO foo VALUES ?;
