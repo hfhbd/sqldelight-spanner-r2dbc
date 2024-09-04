@@ -31,3 +31,23 @@ sqldelight {
 application {
     mainClass.set("app.softwork.spanner.MainKt")
 }
+
+licensee {
+    allow("Apache-2.0")
+    allow("MIT")
+    allow("MIT-0")
+    allow("EPL-1.0")
+    allow("BSD-3-Clause")
+    allowUrl("https://github.com/googleapis/api-common-java/blob/main/LICENSE") {
+        because("BSD-3-Clause")
+    }
+    allowUrl("https://github.com/googleapis/gax-java/blob/master/LICENSE") {
+        because("BSD-3-Clause")
+    }
+    allowUrl("https://spdx.org/licenses/MIT.txt") {
+        because("MIT")
+    }
+    allowUrl("https://golang.org/LICENSE")
+    allowUrl("https://github.com/javaee/javax.annotation/blob/master/LICENSE")
+    allowUrl("https://raw.githubusercontent.com/ThreeTen/threetenbp/main/LICENSE.txt")
+}
