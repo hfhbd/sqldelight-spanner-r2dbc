@@ -1,28 +1,28 @@
 plugins {
-    kotlin("jvm") version "1.9.21"
-    id("app.cash.sqldelight") version "2.0.1"
-    // id("com.google.cloud.artifactregistry.gradle-plugin") version "2.2.0"
-    id("application")
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.licensee)
+    alias(libs.plugins.sqldelight)
+    application
 }
 
 dependencies {
-    implementation("app.cash.sqldelight:r2dbc-driver:2.0.1")
-    implementation("app.cash.sqldelight:async-extensions:2.0.1")
+    implementation(libs.sqldelight.r2dbc.driver)
+    implementation(libs.sqldelight.async.extensions)
 
-    implementation("com.google.cloud:cloud-spanner-r2dbc:1.2.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.7.1")
+    implementation(libs.cloud.spanner.r2dbc)
+    implementation(libs.coroutines.reactor)
 
-    implementation("org.slf4j:slf4j-simple:2.0.6")
+    implementation(libs.logback)
     testImplementation(kotlin("test"))
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 sqldelight {
     databases.register("Spanner") {
-        dialect("app.cash.sqldelight:postgresql-dialect:2.0.1")
+        dialect(libs.sqldelight.postgresql.dialect)
         packageName.set("app.softwork.spanner")
         generateAsync.set(true)
     }
@@ -30,4 +30,24 @@ sqldelight {
 
 application {
     mainClass.set("app.softwork.spanner.MainKt")
+}
+
+licensee {
+    allow("Apache-2.0")
+    allow("MIT")
+    allow("MIT-0")
+    allow("EPL-1.0")
+    allow("BSD-3-Clause")
+    allowUrl("https://github.com/googleapis/api-common-java/blob/main/LICENSE") {
+        because("BSD-3-Clause")
+    }
+    allowUrl("https://github.com/googleapis/gax-java/blob/master/LICENSE") {
+        because("BSD-3-Clause")
+    }
+    allowUrl("https://spdx.org/licenses/MIT.txt") {
+        because("MIT")
+    }
+    allowUrl("https://golang.org/LICENSE")
+    allowUrl("https://github.com/javaee/javax.annotation/blob/master/LICENSE")
+    allowUrl("https://raw.githubusercontent.com/ThreeTen/threetenbp/main/LICENSE.txt")
 }
