@@ -1,5 +1,5 @@
 [versions]
-coroutines = "1.9.0-RC.2"
+coroutines = "1.9.0"
 sqldelight = "2.0.2"
 
 [libraries]
