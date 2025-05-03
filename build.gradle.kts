@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.licensee)
     alias(libs.plugins.sqldelight)
-    application
+    id("application")
 }
 
 dependencies {
@@ -12,8 +12,7 @@ dependencies {
     implementation(libs.cloud.spanner.r2dbc)
     implementation(libs.coroutines.reactor)
 
-    implementation(libs.logback)
-    testImplementation(kotlin("test"))
+    runtimeOnly(libs.logback)
 }
 
 kotlin {
@@ -50,4 +49,8 @@ licensee {
     allowUrl("https://golang.org/LICENSE")
     allowUrl("https://github.com/javaee/javax.annotation/blob/master/LICENSE")
     allowUrl("https://raw.githubusercontent.com/ThreeTen/threetenbp/main/LICENSE.txt")
+}
+
+testing.suites.named("test", JvmTestSuite::class) {
+    useKotlinTest()
 }
