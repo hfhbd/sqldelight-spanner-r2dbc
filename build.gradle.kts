@@ -46,6 +46,9 @@ licensee {
     allowUrl("https://spdx.org/licenses/MIT.txt") {
         because("MIT")
     }
+    allowUrl("https://opensource.org/license/mit") {
+        because("MIT")
+    }
     allowUrl("https://golang.org/LICENSE")
     allowUrl("https://github.com/javaee/javax.annotation/blob/master/LICENSE")
     allowUrl("https://raw.githubusercontent.com/ThreeTen/threetenbp/main/LICENSE.txt")
