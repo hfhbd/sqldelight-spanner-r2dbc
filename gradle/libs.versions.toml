@@ -1,6 +1,6 @@
 [versions]
 coroutines = "1.10.2"
-sqldelight = "2.1.0"
+sqldelight = "2.2.1"
 
 [libraries]
 cloud-spanner-r2dbc = { module = "com.google.cloud:cloud-spanner-r2dbc", version = "1.4.1" }
